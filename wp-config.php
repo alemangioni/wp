@@ -20,17 +20,17 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
+define('DB_NAME',getenv('DATABASE_NAME'));
 
 /** MySQL database username */
-define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
+define('DB_USER',getenv('DATABASE_USER'));
 
 /** MySQL database password */
-define('DB_PASSWORD',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
+define('DB_PASSWORD',getenv('DATABASE_PASSWORD'));
 
 /** MySQL hostname */
-define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
-define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT')); 
+define('DB_HOST',getenv(strtoupper(getenv("DATABASE_SERVICE_NAME"))."_SERVICE_HOST"));
+define('DB_PORT',getenv(strtoupper(getenv("DATABASE_SERVICE_NAME"))."_SERVICE_PORT"));
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
